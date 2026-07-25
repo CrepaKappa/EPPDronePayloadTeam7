@@ -18,9 +18,9 @@ title("Drone Arm with Face Labels, Rear View")
 model.MaterialProperties = materialProperties(YoungsModulus=materials(1).E_Pa,PoissonsRatio=materials(1).nu);
 
 % Boundary Conditions and Loads
-model.FaceBC(7) = faceBC(Constraint="fixed"); % Fixed to drone body
+model.FaceBC(5) = faceBC(Constraint="fixed"); % Fixed to drone body
 model.FaceLoad(1) = faceLoad("SurfaceTraction",[0,0,-0.065]); % Weight of motor
-model.FaceLoad(12) = faceLoad("SurfaceTraction",[0,0,1]); % Force of propeller pull
+model.FaceLoad(7) = faceLoad("SurfaceTraction",[0,0,1]); % Force of propeller pull
 
 % Mesh Generation
 model = generateMesh(model);
