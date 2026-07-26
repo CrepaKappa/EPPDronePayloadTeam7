@@ -1,4 +1,7 @@
 %%Thrust vs Weight analysis
+fv=stlread('DroneArmA.stl');
+shp = alphaShape(fv.Points);
+vol = volume(shp);
 load('droneArmMaterials.mat')
 %Design 1
 thrust=1*4;%thrust in kg
