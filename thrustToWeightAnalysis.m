@@ -1,5 +1,5 @@
 clear,clc
-
+ 
 %%Thrust vs Weight analysis
 load('droneArmMaterials.mat')
 %Design 1
