@@ -12,7 +12,7 @@ propMass = 10; % in grams
 weight = (motorMass + propMass)*g/1000; % Weight of the objects attached to the drone arm in Newtons
 
 % Boundary Conditions and Loads
-model.FaceBC(5) = faceBC(Constraint="fixed"); % Fixed to drone body
+model.FaceBC(14) = faceBC(Constraint="fixed"); % Fixed to drone body
 
 % Surface Traction in units of N/m^2, T = F/A 
 % Weight provided in grams and thrust in kilograms
@@ -21,9 +21,9 @@ alignmentArea = pi*(0.005)^2; % drone arm models will have a slightly extruded f
 weightTraction = weight/alignmentArea;
 thrustTraction = thrust/alignmentArea;
 
-model.FaceLoad(6) = faceLoad("SurfaceTraction",[0,0,-weightTraction]); % Weight of motor
-model.FaceLoad(1) = faceLoad("SurfaceTraction",[0,0,thrustTraction]); % Force of propeller pull
-model.FaceLoad(3) = faceLoad("Gravity",[0,0,-g]);
+model.FaceLoad(8) = faceLoad("SurfaceTraction",[0,0,-weightTraction]); % Weight of motor
+model.FaceLoad(11) = faceLoad("SurfaceTraction",[0,0,thrustTraction]); % Force of propeller pull
+model.FaceLoad(2) = faceLoad("Gravity",[0,0,-g]);
 
 % Defining results vectors
 Material = [materials(1).name; materials(2).name; materials(3).name; materials(4).name; materials(5).name; materials(6).name];
