@@ -30,6 +30,7 @@ Material = [materials(1).name; materials(2).name; materials(3).name; materials(4
 massResult = zeros(6,1);
 yieldResult = zeros(6,1);
 vonMisesResult = zeros(6,1);
+displacementResult = zeros(6,1);
 FOSResult = zeros(6,1);
 
 % Defining volume for mass calculation
@@ -54,22 +55,22 @@ for n = 1:6
 
     nexttile % x-displacement
     pdeplot3D(result.Mesh,ColorMapData=result.Displacement.ux);
-    title("x-displacement")
+    title("x-displacement (m)")
     colormap("jet")
     
     nexttile % y-displacement
     pdeplot3D(result.Mesh,ColorMapData=result.Displacement.uy)
-    title("y-displacement")
+    title("y-displacement (m)")
     colormap("jet")
     
     nexttile % z-displacement
     pdeplot3D(result.Mesh,ColorMapData=result.Displacement.uz)
-    title("z-displacement")
+    title("z-displacement (m)")
     colormap("jet")
     
     nexttile % von Mises stress
     pdeplot3D(result.Mesh,ColorMapData=result.VonMisesStress)
-    title("von Mises stress")
+    title("von Mises stress (Pa)")
     colormap("jet")
     
     % Calculating mass
@@ -78,13 +79,17 @@ for n = 1:6
     % Outputting data
     yield = materials(n).yieldStrength_Pa;
     vonMis = max(result.VonMisesStress);
+    displacement = max(result.Displacement.Magnitude);
     FoS = yield/vonMis;
     
     massResult(n) = mass;
     yieldResult(n) = yield;
     vonMisesResult(n) = vonMis;
     FOSResult(n) = FoS;
+    displacementResult(n) = displacement;
 end
+% Converts displacement results into micrometers for display
+displacementResult = 1000000 * displacementResult;
 
 % Creating results table
 resultsTable = table();
@@ -92,4 +97,5 @@ resultsTable.("Drone Arm Material") = Material;
 resultsTable.("Mass of Drone Arm (kg)") = massResult;
 resultsTable.("Yield Strength (Pa)") = yieldResult;
 resultsTable.("Von Mises Strength (Pa)") = vonMisesResult;
+resultsTable.("Maximum Displacement (µm)") = displacementResult;
 resultsTable.("Factor of Safety") = FOSResult % outputs table to Command Window
