@@ -1,6 +1,6 @@
 % Finite Element Analysis Model Previewer
 % Open relevant files
-model = femodel(AnalysisType="structuralStatic", Geometry="DroneArmA.STL");
+model = femodel(AnalysisType="structuralStatic", Geometry="DroneArmA.STEP");
 load("droneArmMaterials.mat");
 
 % Plotting Drone Arm
