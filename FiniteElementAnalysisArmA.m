@@ -1,6 +1,6 @@
 % Finite Element Analysis Arm A
 % Open relevant files
-model = femodel(AnalysisType="structuralStatic", Geometry="DroneArmA.STEP");
+model = femodel(AnalysisType="structuralStatic", Geometry="Drone Project CAD\DroneArmA.STEP");
 load("droneArmMaterials.mat");
 
 % Constants
@@ -35,7 +35,7 @@ FOSResult = zeros(6,1);
 
 % Defining volume for mass calculation
 massModel = createpde;
-importGeometry(massModel,"DroneArmA.STEP");
+importGeometry(massModel,"Drone Project CAD\DroneArmA.STEP");
 mesh = generateMesh(massModel);
 vol = volume(mesh);
 
@@ -88,8 +88,8 @@ for n = 1:6
     FOSResult(n) = FoS;
     displacementResult(n) = displacement;
 end
-% Converts displacement results into micrometers for display
-displacementResult = 1000000 * displacementResult;
+% Converts displacement results into millimeters for display
+displacementResult = 1000 * displacementResult;
 
 % Creating results table
 resultsTable = table();
@@ -97,5 +97,5 @@ resultsTable.("Drone Arm Material") = Material;
 resultsTable.("Mass of Drone Arm (kg)") = massResult;
 resultsTable.("Yield Strength (Pa)") = yieldResult;
 resultsTable.("Von Mises Strength (Pa)") = vonMisesResult;
-resultsTable.("Maximum Displacement (µm)") = displacementResult;
+resultsTable.("Maximum Displacement (mm)") = displacementResult;
 resultsTable.("Factor of Safety") = FOSResult % outputs table to Command Window
