@@ -12,8 +12,9 @@ In order to run the simulation, an installation of MATLAB with the Partial Diffe
 
 In order to run thrustToWeightAnalysis.m and costAnalysis.m, download droneArmA.stl, droneArmB.stl, droneArmC.stl, and droneArmMaterials.mat.
 
-In order to run finite element analysis, download droneArmA.step, droneArmB.step, droneArmC.step, and droneArmMaterials.mat
+In order to run finite element analysis, download droneArmMaterials.mat and the 'Drone Project CAD' folder.
 
-In order to run DroneDesign_Group7.mlx, download FiniteElementAnalysisArmA.m, FiniteElementAnalysisArmB.m, FiniteElementAnalysisArmC.m, droneArmA.step, droneArmB.step, droneArmC.step, droneArmA.stl, droneArmB.stl, droneArmC.stl, and droneArmMaterials.mat.
+In order to run DroneDesign_Group7.mlx, download FiniteElementAnalysisArmA.m, FiniteElementAnalysisArmB.m, FiniteElementAnalysisArmC.m, droneArmA.stl, droneArmB.stl, droneArmC.stl, droneArmMaterials.mat, and the 'Drone Project CAD' folder
+.
 
 
