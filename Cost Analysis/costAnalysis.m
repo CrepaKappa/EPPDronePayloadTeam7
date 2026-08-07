@@ -3,6 +3,7 @@ clear,clc
 %Load cost per meter data
 load('droneArmMaterials.mat') %Load in materials data
 costPerM = [materials.cost_USD_per_m]; %Extracts cost of materials into an array
+costPerM = costPerM.^3; %converts to cost per meters^3
 %calculate volumes of arms
 %arm A
 fv=stlread('DroneArmA.stl'); %Creates triangulation of geometry
@@ -13,7 +14,7 @@ for i=1:size(T1,1)
     p1=P1(T1(i,1),:);
     p2=P1(T1(i,2),:);
     p3=P1(T1(i,3),:);
-    vol1=vol1+dot(p1,cross(p2,p3))/6;
+    vol1=vol1+dot(p1,cross(p2,p3))/6; 
 end
 vol1=abs(vol1);
 %arm B
@@ -25,7 +26,7 @@ for i=1:size(T2,1)
     p1=P2(T2(i,1),:);
     p2=P2(T2(i,2),:);
     p3=P2(T2(i,3),:);
-    vol2=vol2+dot(p1,cross(p2,p3))/6;
+    vol2=vol2+dot(p1,cross(p2,p3))/6; 
 end
 vol2=abs(vol2);
 %arm C
