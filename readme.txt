@@ -4,8 +4,7 @@ This program was created by Adib Adnan and Sean Barnes for the MathWorks Workpla
 
 Purpose
 
-The purpose of this project was to propose a drone arm design that optimizes payload capacity, factor of safety, and cost. 3 arm designs and 6 material options were tested and the lowest cost design that passed
-the payload and structural safety test was proposed.
+The purpose of this project was to propose a drone arm design that optimizes payload capacity, factor of safety, and cost. 3 arm designs and 6 material options were tested and the lowest cost design that passed the payload and structural safety test was proposed.
 
 Instructions 
 
